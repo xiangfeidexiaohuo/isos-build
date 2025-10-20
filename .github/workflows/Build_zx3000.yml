@@ -42,7 +42,7 @@ jobs:
         uses: actions/checkout@main
         with:
           repository: istoreos/zx-mtk-priv
-          ref: istore_dev
+          ref: dev_zx
           token: ${{ secrets.AC_TOKEN }}
           path: openwrt-${{ matrix.model }}
 
