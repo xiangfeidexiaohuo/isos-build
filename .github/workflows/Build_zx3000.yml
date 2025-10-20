@@ -24,7 +24,7 @@ jobs:
       - name: Free disk space
         uses: xiangfeidexiaohuo/actions@free-disk
         with:
-          build-mount-path: /home/runner/work/EasyWrt/EasyWrt
+          build-mount-path: /home/runner/work/isos-build/isos-build
 
       - name: Initialization environment
         env:
@@ -74,7 +74,7 @@ jobs:
         id: prepare_artifacts
         run: |
           mkdir -p artifacts/${{ matrix.model }}
-          cp -a openwrt-${{ matrix.model }}/openwrt/bin/targets/mediatek/mt7981/istoreos-mediatek-mt7981-ZX7981EP-squashfs-sysupgrade.bin artifacts/${{ matrix.model }}/istoreos-21.02-$(date '+%Y%m%d%H')-zx-7981ep-squashfs-sysupgrade.bin
+          cp -a openwrt-${{ matrix.model }}/openwrt/bin/targets/mediatek/mt7981/istoreos-mediatek-mt7981-ZX7981EP-squashfs-sysupgrade.bin artifacts/${{ matrix.model }}/istoreos-21.02-zx-7981ep-sysupgrade-$(date '+%Y%m%d%H').bin
 
       - name: Upload Firmware Artifacts
         uses: actions/upload-artifact@main

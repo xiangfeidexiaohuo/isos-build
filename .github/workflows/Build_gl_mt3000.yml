@@ -24,7 +24,7 @@ jobs:
       - name: Free disk space
         uses: xiangfeidexiaohuo/actions@free-disk
         with:
-          build-mount-path: /home/runner/work/EasyWrt/EasyWrt
+          build-mount-path: /home/runner/work/isos-build/isos-build
 
       - name: Initialization environment
         env:
