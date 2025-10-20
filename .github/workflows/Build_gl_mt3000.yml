@@ -53,6 +53,7 @@ jobs:
         working-directory: ./openwrt-${{ matrix.model }}
         run: |
           cd mt7981
+          mkdir -p dl
           cp ../dl/* dl/
           make download -j$(nproc)
           find dl -size -1024c -exec ls -l {} \;
