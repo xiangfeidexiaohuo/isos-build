@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@main
 
       - name: Free disk space
-        uses: xiangfeidexiaohuo/actions@free-disk
+        uses: xiangfeidexiaohuo/actions@2204
         with:
           build-mount-path: /home/runner/work/isos-build/isos-build
 
