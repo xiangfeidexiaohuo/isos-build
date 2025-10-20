@@ -21,11 +21,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main
 
-      - name: Free disk space
-        uses: xiangfeidexiaohuo/actions@free-disk
-        with:
-          build-mount-path: /home/runner/work/isos-build/isos-build
-
       - name: Initialization environment
         env:
           DEBIAN_FRONTEND: noninteractive
