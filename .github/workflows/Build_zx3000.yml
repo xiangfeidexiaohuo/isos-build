@@ -66,6 +66,8 @@ jobs:
         working-directory: ./openwrt-${{ matrix.model }}
         run: |
           cd openwrt
+          wget http://launchpadlibrarian.net/366014597/make_4.1-9.1ubuntu1_amd64.deb
+          sudo dpkg -i make_4.1-9.1ubuntu1_amd64.deb
           date '+%Y%m%d%H' > version
           make -j$(nproc) V=s || make -j1 V=s
           cd -
