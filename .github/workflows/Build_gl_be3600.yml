@@ -71,7 +71,7 @@ jobs:
         run: |
           mkdir -p artifacts/${{ matrix.model }}
           cp -a openwrt-${{ matrix.model }}/bin/targets/ipq53xx/generic/istoreos-ipq53xx-generic-gl-be3600-squashfs-factory.bin artifacts/${{ matrix.model }}/istoreos-gl-be3600-factory-$(date '+%Y%m%d%H').bin
-          cp -a openwrt-${{ matrix.model }}/bin/targets/ipq53xx/generic/istoreos-ipq53xx-generic-gl-be3600-squashfs-sysupgrade.tar artifacts/${{ matrix.model }}/istoreos-glbe3600-sysupgrade-$(date '+%Y%m%d%H').tar
+          cp -a openwrt-${{ matrix.model }}/bin/targets/ipq53xx/generic/istoreos-ipq53xx-generic-gl-be3600-squashfs-sysupgrade.tar artifacts/${{ matrix.model }}/istoreos-gl-be3600-sysupgrade-$(date '+%Y%m%d%H').tar
 
       - name: Upload Firmware Artifacts
         uses: actions/upload-artifact@main
