@@ -60,7 +60,7 @@ jobs:
 
       - name: Build firmware
         working-directory: ./openwrt-${{ matrix.model }}
-        run:
+        run: |
           wget http://launchpadlibrarian.net/366014597/make_4.1-9.1ubuntu1_amd64.deb
           sudo dpkg -i make_4.1-9.1ubuntu1_amd64.deb
           date '+%Y%m%d%H' > version
