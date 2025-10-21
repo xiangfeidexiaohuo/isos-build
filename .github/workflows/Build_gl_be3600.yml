@@ -41,7 +41,7 @@ jobs:
       - name: Checkout Main repo
         uses: actions/checkout@main
         with:
-          repository: linkease/be3600_istoreOS_priv
+          repository: istoreos/be3600_istoreOS_priv
           ref: istore
           token: ${{ secrets.AC_TOKEN }}
           path: openwrt-${{ matrix.model }}
