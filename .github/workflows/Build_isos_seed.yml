@@ -55,8 +55,8 @@ jobs:
       - name: Start build
         working-directory: ./openwrt-${{ matrix.model }}
         run: |
-          git clone https://github.com/xiangfeidexiaohuo/EasyWrt.git
-          cp -f ./EasyWrt/diy/op/isos1.sh ./
+          git clone https://github.com/xiangfeidexiaohuo/isos-build.git
+          cp -f ./isos-build/diy/op/isos1.sh ./
           chmod +x ./isos1.sh && ./isos1.sh
 
       - name: Update & Install feeds
@@ -64,7 +64,7 @@ jobs:
         run: |
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-          cp -f ./EasyWrt/diy/op/isos2.sh ./        
+          cp -f ./isos-build/diy/op/isos2.sh ./        
           chmod +x ./isos2.sh && ./isos2.sh
 
       - name: Checkout Config repo
@@ -101,7 +101,7 @@ jobs:
           mkdir -p artifacts/${{ matrix.model }}
           
           rom=openwrt-${{ matrix.model }}/bin/targets/mediatek/filogic/${{ matrix.output_pattern }}
-          cp -a $rom artifacts/${{ matrix.model }}/istoreos-24.10.3-$(date '+%Y%m%d%H')-seed-${{ matrix.lower_model }}-squashfs-sysupgrade.bin
+          cp -a $rom artifacts/${{ matrix.model }}/istoreos-24.10.4-$(date '+%Y%m%d%H')-seed-${{ matrix.lower_model }}-squashfs-sysupgrade.bin
 
       - name: Upload Firmware Artifacts
         uses: actions/upload-artifact@main
