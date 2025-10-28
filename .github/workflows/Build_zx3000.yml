@@ -66,6 +66,9 @@ jobs:
         working-directory: ./openwrt-${{ matrix.model }}
         run: |
           cd openwrt
+          cp -af ./package/diy/luci-app-ota/po/zh-cn ./package/diy/luci-app-ota/po/zh_Hans
+          cp -af ./feeds/third/luci-app-filetransfer/po/zh-cn ./feeds/third/luci-app-filetransfer/po/zh_Hans
+          cp -af ./feeds/jjm2473_apps/luci-app-cpufreq/po/zh-cn ./feeds/jjm2473_apps/luci-app-cpufreq/po/zh_Hans
           wget http://launchpadlibrarian.net/366014597/make_4.1-9.1ubuntu1_amd64.deb
           sudo dpkg -i make_4.1-9.1ubuntu1_amd64.deb
           date '+%Y%m%d%H' > version
