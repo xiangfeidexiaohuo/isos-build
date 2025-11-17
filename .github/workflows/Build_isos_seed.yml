@@ -13,12 +13,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        model: ["AC1", "AC3"]
+        model: ["AC1", "AC2", "AC3"]
         include:
           - model: "AC1"
             config_file: "config_seed_ac1.config"
             output_pattern: "*-beeconmini_seed-ac1-squashfs-sysupgrade.bin"
             lower_model: "ac1"
+          - model: "AC2"
+            config_file: "config_seed_ac2.config"
+            output_pattern: "*-beeconmini_seed-ac2-squashfs-sysupgrade.bin"
+            lower_model: "ac2"
           - model: "AC3"
             config_file: "config_seed_ac3.config"
             output_pattern: "*-beeconmini_seed-ac3-squashfs-sysupgrade.bin"
