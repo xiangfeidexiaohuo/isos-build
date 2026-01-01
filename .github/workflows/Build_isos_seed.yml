@@ -95,8 +95,11 @@ jobs:
       - name: Build firmware
         working-directory: ./openwrt-${{ matrix.model }}
         run: |
-          date '+%Y%m%d%H' > version
-          echo -n 6a9e125268c43e0bae8cecb014c8ab03 > .vermagic
+          VERSION=$(date '+%Y%m%d%H')
+          echo "$VERSION" > version
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+          echo -n 43cbcde0affaaf16309bb4ab09799e9a > .vermagic
           make -j$(nproc) V=s
 
       - name: Prepare artifacts
@@ -105,7 +108,7 @@ jobs:
           mkdir -p artifacts/${{ matrix.model }}
           
           rom=openwrt-${{ matrix.model }}/bin/targets/mediatek/filogic/${{ matrix.output_pattern }}
-          cp -a $rom artifacts/${{ matrix.model }}/istoreos-24.10.4-$(date '+%Y%m%d%H')-seed-${{ matrix.lower_model }}-squashfs-sysupgrade.bin
+          cp -a $rom artifacts/${{ matrix.model }}/istoreos-24.10.7-$VERSION-seed-${{ matrix.lower_model }}-squashfs-sysupgrade.bin
 
       - name: Upload Firmware Artifacts
         uses: actions/upload-artifact@main
